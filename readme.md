@@ -1,7 +1,11 @@
 # StockCompany #
 ***
+
+[![Java CI with Maven](https://github.com/gund3r/StockCompany/actions/workflows/maven.yml/badge.svg)](https://github.com/gund3r/StockCompany/actions/workflows/maven.yml) 
+
 In this project  only backend for the service. There is no frontend.
 This is a simple server-side project that help manage goods in your stocks.
+
 
 There are some capabilities of the service:
 
