@@ -12,6 +12,7 @@ import io.micronaut.http.annotation.*;
 import io.micronaut.scheduling.TaskExecutors;
 import io.micronaut.scheduling.annotation.ExecuteOn;
 import org.slf4j.Logger;
+import repositories.entityRepositories.StockGoodRepository;
 import repositories.entityRepositories.StockRepository;
 
 import javax.validation.Valid;
@@ -27,9 +28,11 @@ public class StockController {
     final Logger log = org.slf4j.LoggerFactory.getLogger(StockController.class);
 
     protected final StockRepository stockRepository;
+    protected final StockGoodRepository stockGoodRepository;
 
-    public StockController(StockRepository stockRepository) {
+    public StockController(StockRepository stockRepository, StockGoodRepository stockGoodRepository) {
         this.stockRepository = stockRepository;
+        this.stockGoodRepository = stockGoodRepository;
     }
 
     @Get("/hello")
@@ -82,6 +85,8 @@ public class StockController {
     @Delete("/{id}")
     @Status(HttpStatus.NO_CONTENT)
     public void delete(Long id) {
+        //если удаляем склад, то и удаляем все товары из него
+        stockGoodRepository.deleteAllByStockId(id);
         stockRepository.deleteById(id);
     }
 

@@ -20,6 +20,7 @@ import io.micronaut.scheduling.annotation.ExecuteOn;
 import jakarta.inject.Inject;
 import org.slf4j.Logger;
 import repositories.entityRepositories.GoodRepository;
+import repositories.entityRepositories.StockGoodRepository;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
@@ -34,10 +35,12 @@ public class GoodController {
     final Logger log = org.slf4j.LoggerFactory.getLogger(GoodController.class);
 
     protected final GoodRepository goodRepository;
+    protected final StockGoodRepository stockGoodRepository;
 
     @Inject
-    public GoodController(GoodRepository goodRepository) {
+    public GoodController(GoodRepository goodRepository, StockGoodRepository stockGoodRepository) {
         this.goodRepository = goodRepository;
+        this.stockGoodRepository = stockGoodRepository;
     }
 
     @Get("/{id}")
@@ -90,6 +93,8 @@ public class GoodController {
     @Delete("/{id}")
     @Status(HttpStatus.NO_CONTENT)
     public void delete(Long id) {
+        //если удаляем товар, то и удаляем его на всех складах
+        stockGoodRepository.deleteAllByGoodId(id);
         goodRepository.deleteById(id);
     }
 

@@ -12,7 +12,7 @@ public class NewGoodsDocument {
     @Id
     @GeneratedValue(GeneratedValue.Type.AUTO)
     private Long id;
-    @NotBlank
+    @NotNull
     private int documentNumber;
     @NotNull
     private long stockId;

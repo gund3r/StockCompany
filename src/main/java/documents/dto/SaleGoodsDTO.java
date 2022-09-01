@@ -2,12 +2,18 @@ package documents.dto;
 
 import io.micronaut.core.annotation.Introspected;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Introspected
 public class SaleGoodsDTO {
+    @NotNull
     private int documentNumber;
+    @NotNull
     private long stockIdFrom;
+    @NotNull
+    @NotEmpty
     private List<GoodAmount> saleGoods;
 
     public SaleGoodsDTO() {}

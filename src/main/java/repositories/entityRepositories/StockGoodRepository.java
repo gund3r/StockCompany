@@ -33,4 +33,10 @@ public interface StockGoodRepository extends PageableRepository<StockGood, Long>
 
     Iterable<StockGood> findAllByGoodId(@NonNull @NotNull Long goodId);
 
+    @Transactional
+    void deleteAllByGoodId(@NonNull @NotNull Long goodId);
+
+    @Transactional
+    void deleteAllByStockId(@NonNull @NotNull Long stockId);
+
 }

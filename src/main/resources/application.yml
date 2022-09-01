@@ -20,5 +20,5 @@ datasources:
 flyway:
   datasources:
     default:
-      enabled: false # <1>
+      enabled: true # <1>
 #end::flyway[]
