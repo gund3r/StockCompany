@@ -174,7 +174,7 @@ with stocks:
 ````
 ***
 All data is stored in memory with *H2 database*.<br>
-Migration stores at `src/main/resources/db/migration/v1_schema.sql`þ<br>
+Migration stores at `src/main/resources/db/migration/v1_schema.sql`<br>
 Migration works with *flyway*.<br>
 Tests cover main functionality of application controllers.
 Application based on the *Micronaut* framework with using *jdbc* for create and store data.<br>
