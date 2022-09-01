@@ -1,17 +1,17 @@
-run: test
-	mvn mn:run
-
 test:
     mvn test
 
 build: clean
-	mvn verify
+    mvn verify
 
 clean:
-	mvn clean
+    mvn clean
 
 update:
-	mvn versions:update-properties versions:display-plugin-updates
+    mvn versions:update-properties versions:display-plugin-updates
 
-.DEFAULT_GOAL := run
-build-run: run
+run:
+    mvn mn:run
+
+.DEFAULT_GOAL := test-run
+test-run: test run
