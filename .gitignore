@@ -8,3 +8,4 @@ maven-wrapper.jar
 /.idea
 /*.iml
 ./target
+target/

@@ -20,7 +20,7 @@
         <micronaut.version>3.6.1</micronaut.version>
         <micronaut.data.version>3.7.2</micronaut.data.version>
         <micronaut.runtime>netty</micronaut.runtime>
-        <exec.mainClass>com.example.Application</exec.mainClass>
+        <exec.mainClass>Application</exec.mainClass>
     </properties>
 
     <repositories>
