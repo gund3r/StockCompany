@@ -1,0 +1,10 @@
+*.class
+.DS_Store
+*DS_Store
+maven-wrapper.jar
+.class
+/logs
+.idea/
+/.idea
+/*.iml
+./target
